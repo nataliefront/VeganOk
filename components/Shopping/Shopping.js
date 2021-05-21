@@ -8,43 +8,24 @@ class Shopping {
 
         const productsStore = localStorageUtil.getProducts();
         let htmlCatalog = '';
-        let sumCatalog = 0;
         
-        
-        let quantityInput = document.getElementsByClassName('cart_quantity_input')
-        for (let i = 0; i < quantityInput.length; i++) {
-            let input = quantityInput[i]
-            input.addEventListener('change', quantityChanged)
-        }
-
-        function quantityChanged(event) {
-            let input = event.target
-            if (isNaN(input.value) || input.value <= 0) {
-                input.value = 1
-            }
-            updateCartTotal()
-        }
-
-        function updateCartTotal() {
-            sumCatalog += parseInt(price) * parseInt(quantityInput.value);
-        }
-        
-        
-        CATALOG.forEach(({id, img, name, price}) => {
+    
+        CATALOG.forEach(({ id, img, name, price }) => {
             if (productsStore.indexOf(id) !== -1) {
                 htmlCatalog += `
                     <div class="shopping_div">
                         <img class="shopping_img" src="${img}" />
-                        <div class="shopping_name">${name}</div>
-                        <div class="shopping_price">${parseInt(price).toLocaleString()} грн</div>
+                        <div class="shopping_name" name="shopping_name">${name}</div>
+                        <div class="shopping_price_one"">${price} грн</div>
                         <div class="input_group">
-                            <input type="number" value="1" class="cart_quantity_input" id="input" min="1" max="100" />
+                            <div class="shopping_price" data-price="${price}">${price} грн</div>
+                            <input type="number" value="1" class="cart_quantity_input" name="shopping_quantity" id="input" min="1" max="100" />
+                            <button class="btn_danger" type="button">X</button>
                         </div>
                         
                     </div>
                 `;
-           
-              
+
             }
         });
 
@@ -56,7 +37,7 @@ class Shopping {
                     <div>${htmlCatalog}</div>
                     <div class="shopping_sum_div">
                         <div class="shopping_sum_text">Сума до оплати</div>
-                        <div class="shopping_sum_price">${parseInt(sumCatalog).toLocaleString()} грн</div>
+                        <div class="shopping_sum_price"></div>
                     </div>
                 </div>
 
@@ -68,14 +49,59 @@ class Shopping {
                     <input type="number" class="form_input" name="user_phone" placeholder="Напишіть телефон">
                 </div>
                 <div class="form_item">
-                    <textarea name=" message" id="forMessage" class="form_input" placeholder="Напишіть, адресу, дату та  на яку годину потрібне замовлення"></textarea>
+                    <textarea id="forMessage" class="form_input" name="user_message" placeholder="Напишіть адресу, дату та  на яку годину потрібне замовлення"></textarea>
                 </div>
                 <div class="form_button_div">
-                    <button type="submit" class="form_button">Отправить</button>
+                    <button type="submit" class="form_button">Замовити</button>
                 </div>
                 </form>
             </div>
         `;
+
+        setTimeout(() =>{
+            let removeCartItemButtons = document.querySelectorAll('.btn_danger')
+            for (let i = 0; i < removeCartItemButtons.length; i++) {
+                let button = removeCartItemButtons[i]
+                button.addEventListener('click', removeCartItem)
+            }
+
+            function removeCartItem(event) {
+                let buttonClicked = event.target
+                buttonClicked.parentElement.parentElement.remove()
+                // const productsStore = localStorage.removeProducts(id);
+                // headerPage.render(productsStore.length);        
+                updateCartTotal();
+            }
+
+            let quantityInput = document.querySelectorAll('.cart_quantity_input');
+            let shopingPrice = document.querySelectorAll('.shopping_price');
+    
+            for (let i = 0; i < quantityInput.length; i++) {
+                let input = quantityInput[i]
+                input.addEventListener('input', quantityChanged)
+            }
+    
+            function quantityChanged(event) {
+                let input = event.target
+                let singlePrice = input.closest('.shopping_div').querySelector('.shopping_price');
+                console.log(input.value)
+                singlePrice.innerText = `${singlePrice.dataset.price * input.value} грн`;
+                updateCartTotal();
+            }
+    
+            function updateCartTotal() {
+                let sumCatalog = 0;
+                let summShopingPrice = document.querySelector('.shopping_sum_price');
+    
+                for (let i = 0; i < shopingPrice.length; i++) {
+                    let single = parseInt(shopingPrice[i].innerText)
+                    sumCatalog += single
+                }
+                summShopingPrice.innerText = `${sumCatalog} грн`;
+            }
+            updateCartTotal();
+        },0)
+
 
         ROOT_SHOPPING.innerHTML = html;
     }

@@ -59,17 +59,39 @@
     margin-right: 5px;
 }
 
+.shopping_price_one,
 .shopping_price {
     font-size: 18px;
-} 
+}
 
-.input {
+.input_group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cart_quantity_input {
     width: 40px;
     padding: 2px 4px;
     font-size: 15px;
     outline: none;
     border: 2px solid var(--grey);
     border-radius: 3px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.btn_danger {
+    color: var(--white);
+    background-color: var(--sea);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 3px 4px;
+    border: 1px solid var(--sea);
+    border-radius: 2px;
+    margin-left: 20px;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 .shopping_sum_div {
@@ -91,6 +113,7 @@
 }
 
 .form_input {
+    font-family: 'Oranienbaum', serif;
     margin-top: 20px;
     width: 270px;
     padding: 6px;
@@ -114,6 +137,8 @@ input[type="number"]:focus {
 }
 
 textarea.form_input {
+    font-family: 'Oranienbaum', serif;
+    font-size: 17px;
     min-height: 100px;
     resize: vertical;
     width: 100%;
@@ -164,12 +189,21 @@ textarea.form_input {
         font-size: 16px;
     }
     
+    .shopping_price_one,
     .shopping_price {
         font-size: 16px;
     } 
 
     .shopping_sum_div {
         width: 280px;
+    }
+
+    .cart_quantity_input {
+        margin-left: 5px;
+    }
+    
+    .btn_danger {
+        margin-left: 5px;
     }
 
 }

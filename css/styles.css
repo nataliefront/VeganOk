@@ -22,6 +22,7 @@
 }
 
 body {
+    font-family: 'Oranienbaum', serif;
     overflow-anchor: none;
 }
 
@@ -74,7 +75,7 @@ body {
     color: var(--black);
     text-decoration: none;
     padding: 0 1rem;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .navbar_link:hover {
@@ -113,7 +114,7 @@ body {
         justify-content: center;
         align-items: center;
         padding: 1rem;
-        font-size: 28px;
+        font-size: 32px;
         font-weight: 500;
         overflow: auto;
     }
@@ -226,7 +227,7 @@ body {
 
 .footer_logo {
     color: var(--black);
-    font-size: 30px;
+    font-size: 32px;
     text-decoration: none;
     margin-bottom: 15px;
 }
@@ -252,7 +253,7 @@ body {
 
 .footer_link {
     text-decoration:none;
-    font-size: 24px;
+    font-size: 28px;
     color: var(--black);
     line-height: 36px;
 }
@@ -375,25 +376,24 @@ body {
     flex-direction: column;
     border: 1px solid var(--white);
     border-radius: 20px;
-    width: 260px;
+    width: 270px;
     background-color: var(--white);
-    padding: 10px;
-    position: relative;
-    transform: rotateY(90deg);
+    padding: 20px;
+    transform: scale(0.2, 0.2);
+    opacity: 0.5;
     animation-name: list;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes list {
     0% {
-        transform: rotateY(90deg);
-    }
-    50% {
-        transform: rotateY(0deg);
+        transform: scale(0.2, 0.2);
+        opacity: 0.5;
     }
     100% {
-        transform: rotateY(90deg);
+        transform: scale(1, 1);
+        opacity: 1;
     }
 }
 
@@ -403,12 +403,45 @@ body {
     font-size: 30px;
     font-weight: 600;
     line-height: 35px;
+    color: var(--sea);
+    position: relative;
+    animation-name: list_div;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes list_div {
+    0% {
+        color: var(--sea);
+    }
+    50% {
+        color: #155861;
+    }
+    100% {
+        color: var(--sea);
+    }
 }
 
 .fa-check-circle {
     margin-right: 10px;
     margin-top: 1px;
     color: var(--sea);
+    position: relative;
+    animation-name: fa-check-circle;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fa-check-circle {
+    0% {
+        color: var(--sea);
+    }
+    50% {
+        color: #155861;
+    }
+    100% {
+        color: var(--sea);
+    }
 }
 
 
@@ -455,40 +488,88 @@ body {
     cursor: pointer;
 }
 
-.index_img_div {
-    flex: 0 1 50%;
+.catering_img_div img {
+    max-width: 100%;
 }
 
-.index_img_div img {
-    max-width: 100%;
-    position: relative;
-    transform: scale(0.9, 0.9);
-    animation-name: index_img;
-    animation-duration: 8s;
+
+/* .catering_img_div {
+    flex: 0 1 50%;
+    width: 650px;
+    height: 605px;
+    background: url('../img/img_index/image4.jpg') center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation-name: catering_img;
+    animation-duration: 24s;
     animation-iteration-count: infinite;
 }
 
-@keyframes index_img {
-    0% {
-        transform: scale(0.9, 0.9);
+@keyframes catering_img {
+    25% {
+        background: url('../img/img_index/image3.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
     50% {
-        transform: scale(1, 1);
+        background: url('../img/img_index/image5.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    75% {
+        background: url('../img/img_index/image6.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
     100% {
-        transform: scale(0.9, 0.9);
+        background: url('../img/img_index/image4.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
-}
-
-.index_img_div img:hover {
-    animation-play-state: paused;
-}
+} */
 
 .wedding {
     display: flex;
     flex-direction: row;
     padding: 20px 100px;
 }
+
+.wedding_img_div img {
+    max-width: 100%;
+}
+
+/* .wedding_img_div {
+    flex: 0 1 50%;
+    background: url('../img/img_index/image3.jpg') center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation-name: wedding_img;
+    animation-duration: 24s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wedding_img {
+    25% {
+        background: url('../img/img_index/image5.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    50% {
+        background: url('../img/img_index/image4.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    75% {
+        background: url('../img/img_index/image6.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    100% {
+        background: url('../img/img_index/image3.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+} */
 
 .wedding_info {
     flex: 0 1 50%;
@@ -556,6 +637,43 @@ body {
     cursor: pointer;
 }
 
+.birthday_img_div img {
+    max-width: 100%;
+}
+
+/* .birthday_img_div {
+    flex: 0 1 50%;
+    background: url('../img/img_index/image5.jpg') center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation-name: birthday_img;
+    animation-duration: 24s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes birthday_img {
+    25% {
+        background: url('../img/img_index/image3.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    50% {
+        background: url('../img/img_index/image4.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    75% {
+        background: url('../img/img_index/image6.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    100% {
+        background: url('../img/img_index/image5.jpg') center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+} */
+
 
 @media screen and (max-width: 1000px) {
 
@@ -564,7 +682,7 @@ body {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 30px 10px;
+        padding: 30px 10px 10px 10px;
     }
 
     .catering_info {
@@ -720,7 +838,8 @@ body {
 .about_me_div img {
     max-width: 100%;
     position: relative;
-    transform: scale(0.3, 0.3);
+    transform: scale(0.2, 0.2);
+    opacity: 0.2;
     animation-name: about_me_img;
     animation-duration: 2s;
     animation-fill-mode: forwards;
@@ -728,10 +847,12 @@ body {
 
 @keyframes about_me_img {
     0% {
-        transform: scale(0.3, 0.3);
+        transform: scale(0.2, 0.2);
+        opacity: 0.2;
     }
     100% {
         transform: scale(1, 1);
+        opacity: 1;
     }
 }
 
@@ -820,43 +941,11 @@ body {
     flex-direction: row;
 }
 
-/* .about_children_img > div > div img {
-    max-width: 99%;
-    margin: 1px 0;
-    position: relative;
-    transform: rotateY(0deg);
-    animation-name: about_children_img;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes about_children_img {
-    0% {
-        transform: rotateY(0deg);
-    }
-    25% {
-        transform: rotateY(30deg);
-    }
-    50% {
-        transform: rotateY(0deg);
-    }
-    75% {
-        transform: rotateY(-30deg);
-    }
-    100% {
-        transform: rotateY(0deg);
-    }
-}
-
-.about_children_img > div > div img:hover {
-    animation-play-state: paused;
-} */
-
 .about_children_img > div > div img {
     max-width: 99%;
     margin: 1px 0;
     position: relative;
-    transform: skew(0deg, 0deg);
+    transform: scale(0.9, 0.9);
     animation-name: about_children_img;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -864,24 +953,87 @@ body {
 
 @keyframes about_children_img {
     0% {
-        transform: skew(0deg, 0deg);
-    }
-    25% {
-        transform: skew(2deg, 2deg);
+        transform: scale(0.9, 0.9);
     }
     50% {
-        transform: skew(0deg, 0deg);
-    }
-    75% {
-        transform: skew(-2deg, -2deg);
+        transform: scale(1, 1);
     }
     100% {
-        transform: skew(0deg, 0deg);
+        transform: scale(0.9, 0.9);
     }
 }
 
 .about_children_img > div > div img:hover {
     animation-play-state: paused;
+}
+
+.about_comments {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+}
+
+.about_comments > h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.about_comments_content {
+    display: flex;
+    flex-direction: row;
+}
+
+.about_comments_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about_form {
+    font-family: 'Oranienbaum', serif;
+    margin-top: 20px;
+    width: 270px;
+    padding: 6px;
+    font-size: 17px;
+    outline: none;
+    border: 1px solid var(--grey);
+    border-radius: 7px;
+    transition: all 0.5s ease 0s;
+}
+
+textarea.about_form {
+    font-family: 'Oranienbaum', serif;
+    font-size: 17px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.about_form_button_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px 0 0 0;
+    width: 270px;
+}
+
+.about_form_button {
+    width: 80%;
+    background-color: var(--sea);
+    border: 4px solid var(--white);
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.about_comment_field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    margin-left: 30px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -909,7 +1061,7 @@ body {
 @media screen and (max-width: 600px) {
 
     .about_content {
-        padding: 10px;
+        padding: 15px;
     }
 
     .about_content > h3{
@@ -956,6 +1108,11 @@ body {
         flex-direction: column;
     }
 
+    .about_comments_content {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 
@@ -987,6 +1144,23 @@ body {
     margin: 30px 0 0 0;
     font-size: 30px;
     font-weight: 500;
+    position: relative;
+    transform: scale(0.2, 0.2);
+    opacity: 0.2;
+    animation-name: partners_h3;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes partners_h3 {
+    0% {
+        transform: scale(0.2, 0.2);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
 }
 
 .partners_contacts {
@@ -1007,6 +1181,7 @@ body {
     box-shadow: 4px 4px 4px 4px rgba(162, 176, 180, 0.5);
     padding: 10px;
     margin: 10px;
+    color: #837b8b;
 }
 
 .partners_contacts_img {
@@ -1076,7 +1251,7 @@ body {
     .partners_content > h3 {
         max-width: 300px;
         margin: 15px 0 0 0;
-        font-size: 26px;
+        font-size: 22px;
         font-weight: 600;
     }
 
@@ -1127,7 +1302,7 @@ body {
 }
 
 .delivery_info_text > p {
-    background: url(../img/img_delivery/donation.png) 0 0 no-repeat;
+    background: url('../img/img_delivery/donation.png') 0 0 no-repeat;
     padding: 0 0 0 40px;
     
 }
@@ -1225,6 +1400,7 @@ body {
 }
 
 .contacts_form_input {
+    font-family: 'Dancing Script', cursive;
     background: transparent;
     margin-top: 20px;
     width: 360px;
@@ -1253,6 +1429,7 @@ input[type="number"]:focus {
 }
 
 textarea.contacts_form_input {
+    font-size: 18px;
     min-height: 150px;
     resize: vertical;
     width: 100%;

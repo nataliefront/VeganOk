@@ -22,7 +22,7 @@ class Header {
                         <a href="./about.html" class="navbar_link">Хто ми</a>
                         <a href="./store.html" class="navbar_link">Магазин</a>
                         <a href="./partners.html" class="navbar_link">Партнери</a>
-                        <a href="./delivery.html" class="navbar_link">Доставка та оплата</a>
+                        <a href="./delivery.html" class="navbar_link">Доставка</a>
                         <a href="./contacts.html" class="navbar_link">Контакти</a>
                     </div>
      
